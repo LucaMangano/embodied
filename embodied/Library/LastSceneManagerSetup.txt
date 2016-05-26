@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MainScene.unity
+- path: Assets/MusicRoom2.unity
   isLoaded: 1
   isActive: 1
