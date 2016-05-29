@@ -45,7 +45,6 @@ public class Drawer : MonoBehaviour {
 		}
 
 		if (temp_DIST <= FIST_TRIGGER_DISTANCE) {
-			print ("fist");
 			draw_fist = true;
 		}
 

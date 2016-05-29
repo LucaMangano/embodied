@@ -6,9 +6,18 @@ using System;
 public class CanvasAutomation : MonoBehaviour {
 
 	public Material material_;
+	public Material mat0;
+	public Material mat1;
+	public Material mat2;
+	public Material mat3;
+	public Material mat4;
+	public Material mat5;
+	public Material mat6;
+
+	private bool colorEnable;
 
 	private const int INTERPOLATION_AMT = 3;
-	private const int MAX_POINTS = 500; //make it infinite
+	private const int MAX_POINTS = 500; //cannot go higher, memory problems
 	private const int POINT_MEMORY = 50;
 	private const int TUBE_FACES = 50;
 	private const int VERTEX_NUM = TUBE_FACES * 2;
@@ -39,6 +48,7 @@ public class CanvasAutomation : MonoBehaviour {
 	private List<Vector3> next_points_;
 
 	void Start () {
+		colorEnable = false;
 		mesh_ = new Mesh();
 	    drawing_ = false;
 
@@ -76,6 +86,7 @@ public class CanvasAutomation : MonoBehaviour {
 		Graphics.DrawMesh(mesh_, transform.localToWorldMatrix, material_, 0);
 	}
 
+	//external source
 	private void UpdateNextPoint() {
 		if (drawing_) {
 			for (int i = POINT_MEMORY - 1; i > 0; i--)
@@ -108,10 +119,12 @@ public class CanvasAutomation : MonoBehaviour {
 		}
 	}
 
+	//external source
 	void IncrementIndices() {
 		point_index_ = (point_index_ + 1) % MAX_POINTS;
 	}
-  
+  	
+	//esternal source
 	private Vector3 InterpolatedPoint(float t) {
 		Vector3 naut = last_points_[0] * (t + 2) * (t + 1) * t / 6.0f;
 		Vector3 one = -last_points_[1] * (t + 2) * (t + 1) * (t - 1) / 2.0f;
@@ -120,6 +133,7 @@ public class CanvasAutomation : MonoBehaviour {
 		return naut + one + two + three;
 	}
 
+	//used to generate the mesh that will be drawn
 	Vector3[] MakeShape(Vector3 next) {
 		Vector3[] q = new Vector3[VERTEX_NUM];
 		Vector3 radius = new Vector3();
@@ -140,24 +154,29 @@ public class CanvasAutomation : MonoBehaviour {
 			t = 4;
 		}
 			
-		//change the amount of faces according to speed
-		//does not really affect visuals
-		/*float t = TUBE_FACES*last_velocity_.magnitude*5;
-		int sides = 3;
-		float d = 10 / last_velocity_.magnitude;
-		if (d > 100 && d <= 200) {
-			sides = 3;
-		} else if (d > 200 && d <= 300) {
-			sides = 13;
-		} else if (d > 300 && d <= 400) {
-			sides = 23;
-		} else if (d > 400 && d <= 500) {
-			sides = 33;
-		} else if (d > 500 && d <= 600) {
-			sides = 43;
+		//depending on the status of colorEnable, either color the mesh with different colors, or use the standard black material
+		if (colorEnable) {
+			//change color according to speed
+			float d = last_velocity_.magnitude * 5000;
+			print (d);
+			if (d <= 200) {
+				material_ = mat1;
+			} else if (d > 200 && d <= 500) {
+				material_ = mat2;
+			} else if (d > 500 && d <= 800) {
+				material_ = mat4;
+			} else if (d > 800 && d <= 1200) {
+				material_ = mat5;
+			} else {
+				material_ = mat6;
+			}
 		} else {
-			sides = 50;
-		}*/
+			if (FIST) {
+				material_ = mat6;
+			} else{
+				material_ = mat0;
+			}
+		}
 
 
 		Quaternion rotation = Quaternion.AngleAxis(360.0f / t, new Vector3(0, 0, 1));
@@ -179,6 +198,7 @@ public class CanvasAutomation : MonoBehaviour {
 		return q;
 	}
 
+	//used to add lines in the mesh - external source
 	void AddLine(Mesh m, Vector3[] shape) {
 		int vertex_index = point_index_ * VERTEX_NUM;
 		int triangle_index = point_index_ * TRIANGLE_NUM;
@@ -215,5 +235,13 @@ public class CanvasAutomation : MonoBehaviour {
 		
 	public Vector3 GetLastPoint() {
 		return drawn_points_[point_index_];
+	}
+
+	//used to toggle between colored and black versions of drawing
+	public void ToggleColor(){
+		if (colorEnable)
+			colorEnable = false;
+		else
+			colorEnable = true;
 	}
 }

@@ -46,13 +46,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\LeapMotion\Editor\HandControllerEditor.cs" />
+     <None Include="Assets\Resources\Shaders\LineShader 2.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 3.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 5.shader" />
      <None Include="Assets\LeapMotion\InteractionUtils (alpha)\readme.txt" />
      <None Include="Assets\LeapMotion\readme.txt" />
+     <None Include="Assets\Resources\Shaders\LineShader 4.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Resources\Shaders\LineShader.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 1.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 6.shader" />
  <Reference Include="Assembly-UnityScript">
  <HintPath>/Users/lucamangano/embodied/embodied/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>

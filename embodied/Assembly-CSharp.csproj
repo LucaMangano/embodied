@@ -84,13 +84,19 @@
      <Compile Include="Assets\Resources\Scripts\CanvasAutomation.cs" />
      <Compile Include="Assets\Resources\Scripts\Drawer.cs" />
      <Compile Include="Assets\Resources\Scripts\PointFollow.cs" />
+     <None Include="Assets\Resources\Shaders\LineShader 2.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 3.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 5.shader" />
      <None Include="Assets\LeapMotion\InteractionUtils (alpha)\readme.txt" />
      <None Include="Assets\LeapMotion\readme.txt" />
+     <None Include="Assets\Resources\Shaders\LineShader 4.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Resources\Shaders\LineShader.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 1.shader" />
+     <None Include="Assets\Resources\Shaders\LineShader 6.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

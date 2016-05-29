@@ -1,3 +1,4 @@
+//external source used to move the explore the scene with the mouse (rotate/move camera)
 var target : Transform;
 var distance = 10.0;
 
