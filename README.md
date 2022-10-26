@@ -1,1 +1,1 @@
-# embodied
+# Embodied interaction project
